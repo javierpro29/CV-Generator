@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicing Javascript</title>
+    <link rel="stylesheet" href="assents/sass/custom.css">
+    <link rel="stylesheet" href="assents/style/style.css">
+</head>
+<body>
+    <div class="cantainer-fluid">
+
+        <div class="row mb-5">
+            <div class="col col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+                    <div class="card">
+                        <div class="card-header bg-dark text-light">
+                            <h2 class="text-center">CV Generator</h2>
+                        </div>
+                        <div class="card-body">
+                        <p class="h3 card-title text-center mb-3">Complete All Information</p>
+    
+                        <div class="personal-information border-bottom border-dark">
+    
+                            <div class="card-title h5 mb-3">Personal Information</div>
+    
+                            <div class="row">
+                                <div class="col col-sm-6 col-lg-6 mb-2">
+                                    <label for="name">Name:</label>
+                                    <input type="text" class="form-control" name="name" id="name" >
+                               </div>
+                               
+                               <div class="col col-sm-6 col-lg-6 mb-2">
+                                    <label for="lastName">LastName:</label>
+                                    <input type="text" class="form-control" name="lastName" id="lastName" >
+                               </div>
+                            </div>
+        
+        
+                            <div class="row">
+                                <div class="col col-sm-6 col-lg-6 mb-2">
+                                    <label for="address">Address:</label>
+                                    <input type="text" class="form-control" name="address" id="address">
+                               </div>
+                               
+                               <div class="col col-sm-6 col-lg-6 mb-2">
+                                    <label for="email">Email:</label>
+                                    <input type="text" class="form-control" name="email" id="email">
+                                    <p class="text text-danger error-input" id="emailErrorMessage">The email is not valid</p>
+                               </div>
+                            </div>
+
+    
+                            <div class="row">
+                                <div class="col col-sm-4 col-lg-4 mb-2">
+                                    <label for="phoneNumber">Phone Number:</label>
+                                    <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="16505130514">
+                                    <p class="text text-danger error-input" id="phoneErrorMessage">The phone Number is not valid</p>
+                               </div>
+                               
+                               <div class="col col-sm-8 col-lg-8 mb-2">
+                                    <label for="webSite">Web Site:</label>
+                                    <input type="text" class="form-control" name="webSite" id="webSite">
+                               </div>
+                            </div>
+    
+                            <div class="row">
+                                <div class="col">
+                                    <label for="summary">About you:</label>
+                                    <textarea class="form-control mb-2" name="summary" id="summary" cols="0" rows="4"></textarea>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+    
+                        <div class="row">
+                        
+                            <div class="certificates border-bottom border-dark mt-2">
+                                <div class="card-title h5 mb-3">Skills</div>
+        
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="knowledge">Knowledge</label>
+                                        <textarea class="form-control mb-2 noresize" name="knowledge" id="knowledge" cols="0" rows="2" placeholder="Write your knowledges separated by comma"></textarea>
+                                    </div>
+                                </div>
+    
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="lenguages">Lenguages</label>
+                                        <textarea class="form-control mb-2 noresize" name="lenguages" id="lenguages" cols="0" rows="2" placeholder="Write the lenguges you know"></textarea>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="work-experinse border-bottom border-dark mt-2">
+                                <div class="card-title h5 mb-2">Education</div>
+        
+        
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="academies">Academies:</label>
+                                        <textarea class="form-control mb-2 noresize" name="academies" id="academies" cols="0" rows="2" placeholder="Write the name of the academies where you have studied"></textarea>
+                                    </div>
+                                </div>
+    
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="certificates">Certificates</label>
+                                        <textarea class="form-control mb-2 noresize" name="certificates" id="certificates" cols="0" rows="2" placeholder="Write your certificates separated by comma"></textarea>
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+    
+    
+    
+                        <div class="row">
+                            <div class="work-experinse border-bottom border-dark mt-2">
+                                <div class="card-title h5 mb-2">Work Experience</div>
+        
+        
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="experiences">About you:</label>
+                                        <textarea class="form-control mb-2 noresize" name="experiences" id="experiences" cols="0" rows="2" placeholder="Write your work experiences separated by comma"></textarea>
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+    
+    
+                    </div>
+                    <div class="card-footer">
+                        <button onclick="generateCV()" type="button" class="btn btn-primary float-end mx-2"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+                        <button type="button" class="btn btn-warning float-end"><i class="fa-solid fa-trash"></i> Clean</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <!-- Container of the CV -->
+        <div class="row bg-dark text-light" id="container-cv">
+            
+            <div class="col-10 offset-1 col-sm-10 offset-sm-1 col-lg-8 offset-lg-2" id="firstchild">
+                
+                <!-- <h2 class="my-5">Curiculum Vitae</h2>
+                
+                <div class="row text-dark p-0">
+
+                    <div class="col col-sm-4 col-lg-4 bg-light p-0">
+
+                        
+                        <div class="col-4 container-empty bg-primary p-0"></div>
+
+                        <div class="name pt-3 px-2 mb-4">
+                            <h2>First & Second Name</h2>
+                            <h2>Last Name</h2>
+                        </div>
+
+                        <div class="image d-flex justify-content-center mb-5 mx-2">
+                            <img src="./assents/img/user-6.webp" alt="" class="img-fluid"> 
+                        </div>
+
+                        <div class="contact mb-3 px-5">
+                            <h4 class="border-bottom border-3">Contact</h4>
+                            
+                            <div class="address mt-4 mb-3">
+                                <h6>Address:</h6>
+                                <p>Calle F, Casa #4, Brisa Oriental 2, Santo Domingo Este, Republica Dominicana</p>
+                            </div>
+
+                            <div class="phone mb-3">
+                                <h6>Phone:</h6>
+                                <p>8290458956</p>
+                            </div>
+
+                            <div class="email mb-3">
+                                <h6>Email:</h6>
+                                <p class="text text-break">javier14142929@gmail.com</p>
+                            </div>
+
+                            <div class="languages">
+                                <h6 class="text-dark">Lenguages:</h6>
+                                <ul>
+                                    <li>Español</li>
+                                    <li>English</li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                   </div>
+                
+
+                   <div class="col col-sm-8 col-lg-8 bg-light p-0">
+            
+                        <div class="summary pt-5 mb-3 px-5">
+                            <h4 class="border-bottom border-3">Summary</h4>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, quae voluptatem eveniet odit natus earum aliquam cum error aut quisquam vel cupiditate aperiam soluta quia facilis qui quam ab eaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat consectetur rerum sunt nam tempora ipsa, voluptatem explicabo asperiores ab nobis unde accusamus iusto aliquam, earum, magni incidunt nulla corrupti! Doloremque.</p>
+                        </div>
+
+                        <div class="Skill-Highlights mb-3 px-5">
+                            <h4 class="border-bottom border-3">Skill Highlights</h4>
+
+                            <ul class="row">
+                                <li class="col col-sm-6 col-lg-6 mb-3">Projec Managment</li>
+                                <li class="col col-sm-6 col-lg-6 mb-3">strong desicion maker</li>
+                                <li class="col col-sm-6 col-lg-6 mb-3">complex problem solver</li>
+                                <li class="col col-sm-6 col-lg-6 mb-3">creative desing</li>
+                                <li class="col col-sm-6 col-lg-6 mb-3">innovative</li>
+                                <li class="col col-sm-6 col-lg-6 mb-3">serviced-focused</li>
+                            </ul>
+                        </div>
+
+                        <div class="work-experience mb-3 px-5">
+                            <h4 class="border-bottom border-3">Experience</h4>
+                            <ul>
+                                <li>Projec Managment</li>
+                                <li>strong desicion maker</li>
+                                <li>complex problem solver</li>
+                                <li>creative desing</li>
+                                <li>innovative</li>
+                                <li>serviced-focused</li>
+                            </ul>
+                        </div>
+
+                        <div class="education mb-5 px-5">
+                            <h4 class="border-bottom border-3">Education</h4>
+                            <ul class="row">
+                                <li class="col col-sm-6 col-lg-6 mb-3">Projec Managment</li>
+                                <li class="col col-sm-6 col-lg-6 mb-3">strong desicion maker</li>
+                                <li class="col col-sm-6 col-lg-6 mb-3">complex problem solver</li>
+                                <li class="col col-sm-6 col-lg-6 mb-3">creative desing</li>
+                                <li class="col col-sm-6 col-lg-6 mb-3">innovative</li>
+                                <li class="col col-sm-6 col-lg-6 mb-3">serviced-focused</li>
+                            </ul>
+                        </div>
+
+
+                        <div class="certificates mb-5 px-5">
+                            <h4 class="border-bottom border-3">Certificates</h4>
+                            <ul>
+                                <li>Projec Managment</li>
+                                <li>strong desicion maker</li>
+                                <li>complex problem solver</li>
+                                <li>creative desing</li>
+                                <li>innovative</li>
+                                <li>serviced-focused</li>
+                            </ul>
+                        </div>
+
+                        
+                        <div class="container-empty bg-primary"></div>
+
+                    </div>
+
+                </div>-->
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="./assents/js/main.js"></script>
+
+    <!-- resources -->
+    <script src="https://kit.fontawesome.com/f07c6bf9e9.js" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>

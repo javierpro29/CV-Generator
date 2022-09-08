@@ -1,0 +1,27 @@
+.noresize{
+    resize:none;
+}
+
+.container-empty{
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.success{
+    border-color: green;
+}
+
+.error{
+    border-color: red;
+}
+
+.error-input{
+    display: none;
+}
+
+
+/* .h-100{
+    height: 100%;
+} */
