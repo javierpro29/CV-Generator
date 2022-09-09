@@ -260,30 +260,14 @@ function generateCV(){
 
                             const certificate_list = document.createElement("ul");
 
-                                const certificate_item = document.createElement("li")
-                                certificate_item.innerText = "Projec Managment";
-                                
-                                const certificate_item2 = document.createElement("li");
-                                certificate_item2.innerText = "Projec Managment";
-                                
-                                const certificate_item3 = document.createElement("li");
-                                certificate_item3.innerText = "Projec Managment";
-                                
-                                const certificate_item4 = document.createElement("li");
-                                certificate_item4.innerText = "Projec Managment";
-                                
-                                const certificate_item5 = document.createElement("li");
-                                certificate_item5.innerText = "Projec Managment";
-                                
-                                const certificate_item6 = document.createElement("li");
-                                certificate_item6.innerText = "Projec Managment";
-                            
-                            certificate_list.appendChild(certificate_item);
-                            certificate_list.appendChild(certificate_item2);
-                            certificate_list.appendChild(certificate_item3);
-                            certificate_list.appendChild(certificate_item4);
-                            certificate_list.appendChild(certificate_item5);
-                            certificate_list.appendChild(certificate_item6);
+                                m = certificates.value.split(",");
+                                for(let i = 0 ; i < m.length ; i++ ){
+                                    const certificate_item = document.createElement("li")
+                                    certificate_item.innerText = `${m[i]}`;
+
+                                    certificate_list.appendChild(certificate_item);
+                                }
+        
                         
                         certificate_container.appendChild(certificate_title);
                         certificate_container.appendChild(certificate_list);
